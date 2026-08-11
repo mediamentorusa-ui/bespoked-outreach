@@ -1,0 +1,45 @@
+{
+  "version": "0.1",
+  "generatedAt": "2026-08-11T10:00:00Z",
+  "leads": [
+    {
+      "id": "sample-university-hospitality-program",
+      "organizationName": "Sample State University Hospitality Program",
+      "organizationType": "university",
+      "website": "https://example.edu/hospitality",
+      "city": "New Orleans",
+      "state": "Louisiana",
+      "country": "United States",
+      "contactName": "",
+      "contactTitle": "Program Director",
+      "contactEmail": null,
+      "emailStatus": "not_found",
+      "emailSourceUrl": null,
+      "sourceUrls": [
+        "https://example.edu/hospitality",
+        "https://example.edu/events"
+      ],
+      "trigger": "Upcoming fall guest speaker planning",
+      "triggerDate": null,
+      "triggerExplanation": "Sample data: A hospitality program with a likely academic programming window could be a fit for an outside practitioner-led session. Replace this sample with sourced research before production use.",
+      "whyBespoked": "Bespoked's hospitality vs service point of view is relevant for students and emerging leaders learning how guest experience shows up beyond SOPs.",
+      "recommendedOffer": "Workshop / Masterclass",
+      "recommendedOfferReason": "A workshop gives students an interactive way to connect hospitality philosophy with practical behaviors.",
+      "fitScore": 78,
+      "timingScore": 68,
+      "contactScore": 40,
+      "opportunityScore": 62,
+      "confidenceScore": 45,
+      "totalScore": 62,
+      "researchSummary": "Sample placeholder lead used to demonstrate the dashboard schema. It should not be treated as verified prospect research.",
+      "emailSubject": "Hospitality culture session for your students",
+      "emailBody": "I noticed your hospitality program may be planning outside industry sessions, and thought Bespoked's perspective could be useful.\n\nWe focus on the part of hospitality that sits between standards and how people actually feel: culture, ownership, leadership and the small behaviors guests remember.\n\nA practical workshop on hospitality vs service could give students a grounded view of what strong guest experience looks like in real operations.\n\nWould it be useful to share a short outline?",
+      "createdAt": "2026-08-11T10:00:00Z",
+      "researchBatch": "sample-2026-08-11",
+      "tags": [
+        "sample",
+        "replace-before-production"
+      ]
+    }
+  ]
+}
