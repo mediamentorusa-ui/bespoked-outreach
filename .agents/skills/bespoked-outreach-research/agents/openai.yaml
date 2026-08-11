@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bespoked Outreach Research"
+  short_description: "Run Bespoked's recurring outbound research workflow."
+  default_prompt: "Find this weekday's best Bespoked outreach prospects, add only qualified leads to the dashboard dataset, and validate the repo."
