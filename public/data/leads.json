@@ -1,6 +1,6 @@
 {
   "version": "0.1",
-  "generatedAt": "2026-08-11T23:03:43Z",
+  "generatedAt": "2026-08-12T11:53:24Z",
   "leads": [
     {
       "id": "sample-university-hospitality-program",
@@ -640,6 +640,51 @@
         "operations-reset",
         "multi-unit",
         "not-found-email"
+      ]
+    },
+    {
+      "id": "burgerville-consistency-reset-2026",
+      "organizationName": "Burgerville",
+      "organizationType": "restaurant_group",
+      "website": "https://www.burgerville.com/",
+      "city": "Vancouver",
+      "state": "Washington",
+      "country": "United States",
+      "contactName": "Kyle Welch",
+      "contactTitle": "Chief Executive Officer",
+      "contactEmail": "press@burgerville.com",
+      "emailStatus": "verified_public",
+      "emailSourceUrl": "https://www.burgerville.com/contact/",
+      "sourceUrls": [
+        "https://www.burgerville.com/",
+        "https://www.burgerville.com/about/",
+        "https://www.burgerville.com/meet-our-new-ceo-kyle-welch/",
+        "https://www.burgerville.com/contact/",
+        "https://www.bizjournals.com/portland/news/2026/02/17/burgerville-new-ceo-kyle-welch.html"
+      ],
+      "trigger": "New CEO returning Burgerville to its roots and prioritizing consistency across every location",
+      "triggerDate": "2026-02-17",
+      "triggerExplanation": "Burgerville introduced Kyle Welch as its new CEO and said he is renewing focus on the regional brand's roots, people and mission to Serve with Love. Welch explicitly set an intention to deliver greater consistency at every location, following a period of renewed growth and the family-owned company's first outside investment.",
+      "whyBespoked": "Burgerville already has human-centered language, strong regional identity and an active leader who wants that promise to feel consistent across a multi-location operation. Bespoked could help turn Serve with Love into observable manager rhythms, team behaviors, guest-care standards and recovery practices without flattening the local character that makes the brand distinctive.",
+      "recommendedOffer": "On-Site Training",
+      "recommendedOfferReason": "A practical pilot with leaders and frontline teams would translate Burgerville's stated mission and consistency goal into repeatable behaviors that can be tested at a small group of locations before wider rollout.",
+      "fitScore": 89,
+      "timingScore": 90,
+      "contactScore": 68,
+      "opportunityScore": 83,
+      "confidenceScore": 94,
+      "totalScore": 85,
+      "researchSummary": "Burgerville is a long-established Pacific Northwest restaurant group with dozens of locations, a new CEO, renewed growth backing and an explicit public mandate to return to its roots while making the experience more consistent across every restaurant. The company publishes a verified press inbox, though no direct CEO email was found.",
+      "emailSubject": "Making Serve with Love consistent across Burgerville",
+      "emailBody": "Kyle,\n\nI saw your note about bringing Burgerville back to its roots and making the experience more consistent at every location. The phrase Serve with Love stood out because it names exactly what guests should feel, not just what teams should do.\n\nBespoked helps hospitality operators turn that kind of promise into practical manager rhythms, team behaviors and guest-recovery habits that can hold across multiple locations without losing local character.\n\nA focused on-site pilot with a few Burgerville teams could help define what Serve with Love looks and feels like in everyday service, then give leaders a simple way to coach it consistently.\n\nWould it be useful if I shared a short outline?",
+      "createdAt": "2026-08-12T11:53:24Z",
+      "researchBatch": "2026-08-12-operator-pain-culture-us",
+      "tags": [
+        "real-research",
+        "operator-pain",
+        "new-leadership",
+        "multi-location-consistency",
+        "verified-email"
       ]
     }
   ]
