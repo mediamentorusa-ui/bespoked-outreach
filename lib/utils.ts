@@ -6,7 +6,7 @@ export function compactLocation(lead: Pick<Lead | RawLead, "city" | "state" | "c
 
 export function shortDate(value: string | null) {
   if (!value) return "Unknown";
-  const parsed = new Date(value);
+  const parsed = /^\d{4}-\d{2}-\d{2}$/.test(value) ? new Date(`${value}T12:00:00`) : new Date(value);
   if (Number.isNaN(parsed.getTime())) return value;
   return parsed.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
 }

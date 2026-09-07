@@ -1,6 +1,8 @@
 # Bespoked Outreach
 
-Bespoked Outreach is a static internal review dashboard for AI-assisted prospecting at Bespoked Hospitality. V0.1.1 is designed for a GitHub Pages workflow: research happens outside the app through ChatGPT or Codex, then structured lead data is committed to the repository and displayed by the dashboard.
+Bespoked Outreach is a static review dashboard for Bespoked's AI-generated need-signal research. V2 is designed primarily for Lucas: open the app, see who is worth contacting, understand why now, review the suggested approach, edit the email, and track what happened.
+
+Research still happens outside the app through ChatGPT or Codex. The dashboard reads structured lead data from `public/data/leads.json` and keeps human review state in local browser storage.
 
 The dashboard does not call OpenAI directly, does not require a backend, does not require IONOS credentials, and does not require Vercel.
 
@@ -28,16 +30,20 @@ Runtime data sources:
 - GitHub Pages workflow in `.github/workflows/deploy-pages.yml`.
 - Client-side Zod validation for `public/data/leads.json`.
 - Malformed lead records are skipped with a visible warning instead of crashing the app.
-- Local approval/rejection workflow stored separately from the research dataset.
-- Editable email subject/body with `Reset to AI Draft`.
-- Internal notes per lead.
+- Lucas-facing navigation: New, Ready to Contact, Parked, Contacted, Follow Up and Interested.
+- Restaurant and Speaking lead lanes, with restaurant opportunities emphasized by default.
+- Research readiness mapping: `READY_TO_CONTACT` appears ready; `CONTACT_NEEDED` and `WATCH` appear parked.
+- Local review workflow stored separately from the research dataset.
+- Follow-up dates, contacted timestamps, interested timestamps and notes stored locally.
+- Editable email subject/body with `Reset to Research Draft`.
+- Human notes per lead.
 - Mailto-based `Open Email`; no SMTP sending in V0.1.1.
 - Source URLs displayed and clickable.
-- Email certainty labels: `VERIFIED / PUBLIC`, `FOUND / UNCONFIRMED`, `NOT FOUND`.
-- Dashboard stats, recent leads, priority leads and research batch summaries.
+- Email certainty labels: Verified, Needs verification, Not found.
+- Dashboard summary: Ready to Contact, New This Week, Follow Up, Interested and Contacted This Week.
 - Card and table views with filters and sorting.
-- Export filtered leads to CSV.
-- Export all leads to CSV.
+- V2 filters for lane, readiness, restaurant geography, speaking reach, stage, approach, intervention, talk, paid potential, email, priority and research batch.
+- Export filtered or all leads to CSV, including V2 fields.
 - Export/import local review-state JSON backup.
 - Research Workflow page with `Copy Research Prompt`.
 
@@ -59,35 +65,51 @@ Top-level format:
 }
 ```
 
-Each lead must follow:
+V2 records should use `leadLane: "restaurant"` or `leadLane: "speaking"`.
+
+Restaurant records support fields such as:
 
 ```json
 {
   "id": "unique-id",
+  "leadLane": "restaurant",
   "organizationName": "",
-  "organizationType": "university | conference | hotel | restaurant_group | tourism_board | public_institution | other",
+  "organizationType": "restaurant_group",
   "website": "",
   "city": "",
   "state": "",
   "country": "",
+  "geographicTier": "TIER_1_LOCAL_CORE",
+  "restaurantFormat": "",
+  "locationCount": 1,
+  "scaleSummary": "",
   "contactName": "",
   "contactTitle": "",
   "contactEmail": null,
   "emailStatus": "verified_public | found_unconfirmed | not_found",
   "emailSourceUrl": null,
-  "sourceUrls": [],
-  "trigger": "",
-  "triggerDate": null,
-  "triggerExplanation": "",
-  "whyBespoked": "",
-  "recommendedOffer": "Advisory Session | Hospitality Health Check | On-Site Training | Consulting / Transformation | Keynote | Workshop / Masterclass",
+  "preferredContactRoute": "",
+  "researchReadiness": "READY_TO_CONTACT | CONTACT_NEEDED | WATCH",
+  "needSignalType": "",
+  "needSignalSummary": "",
+  "needSignalDate": null,
+  "needSignalEvidenceUrls": [],
+  "whyNow": "",
+  "likelyFrameworkDimensions": [],
+  "recommendedStage": "DIAGNOSE | INTERVENE | REINFORCE | ADVISORY_SESSION",
+  "recommendedInterventionModule": "LEADER_OPERATING_RHYTHM | STANDARDS_FLOW_PRESSURE | DIFFICULT_GUESTS_RECOVERY | HIRING_ONBOARDING",
+  "recommendedOffer": "Team Diagnostic",
   "recommendedOfferReason": "",
-  "fitScore": 0,
-  "timingScore": 0,
-  "contactScore": 0,
-  "opportunityScore": 0,
-  "confidenceScore": 0,
-  "totalScore": 0,
+  "commercialFitScore": 0,
+  "needSignalScore": 0,
+  "geographicFitScore": 0,
+  "decisionMakerScore": 0,
+  "contactCertaintyScore": 0,
+  "offerFitScore": 0,
+  "overallScore": 0,
+  "researchConfidence": 0,
+  "sourceUrls": [],
+  "whyBespoked": "",
   "researchSummary": "",
   "emailSubject": "",
   "emailBody": "",
@@ -97,11 +119,39 @@ Each lead must follow:
 }
 ```
 
-If `totalScore` is missing, the dashboard calculates it with:
+Speaking records support:
 
-```text
-30% Fit + 25% Timing + 20% Opportunity + 15% Contact + 10% Confidence
+```json
+{
+  "leadLane": "speaking",
+  "eventOrProgramName": "",
+  "speakingGeographyType": "LOCAL | REGIONAL | NATIONAL | INTERNATIONAL",
+  "researchReadiness": "READY_TO_CONTACT | CONTACT_NEEDED | WATCH",
+  "opportunitySignal": "",
+  "opportunityDate": null,
+  "opportunityEvidenceUrls": [],
+  "recommendedTalk": "A_LIFE_IN_HOSPITALITY | EXCEPTIONAL_TEAMS",
+  "recommendedFormat": "KEYNOTE | WORKSHOP | MASTERCLASS | PANEL | GUEST_LECTURE | OTHER",
+  "talkFitReason": "",
+  "paidPotential": "HIGH | MEDIUM | LOW | UNKNOWN",
+  "paidPotentialReason": "",
+  "paidPotentialEvidenceUrls": [],
+  "audienceFitScore": 0,
+  "timingScore": 0,
+  "decisionMakerScore": 0,
+  "contactCertaintyScore": 0,
+  "paidPotentialScore": 0,
+  "strategicValueScore": 0,
+  "overallScore": 0
+}
 ```
+
+Legacy V1 records are not deleted. The loader normalizes them for display:
+
+- University, conference, tourism and public-institution records become Speaking leads.
+- Hotel and restaurant-group records become Restaurant leads.
+- Legacy operational offers display in V2 language where practical, for example `Hospitality Health Check` becomes `Team Diagnostic` and `On-Site Training` becomes `Team Intervention`.
+- Missing V2 readiness is inferred from score, verified email and contact completeness.
 
 ## Review State
 
@@ -114,6 +164,9 @@ Review state is stored locally in the user's browser, separate from `leads.json`
     "editedSubject": "...",
     "editedBody": "...",
     "notes": "...",
+    "followUpDate": "2026-09-15",
+    "contactedAt": "...",
+    "interestedAt": "...",
     "updatedAt": "..."
   }
 }
@@ -219,7 +272,7 @@ npm run build
 
 5. Commit and push to `main`.
 
-## V0.1.1 Limitations
+## V2 Limitations
 
 - Review state is local to one browser/device.
 - There is no authentication.
@@ -227,6 +280,7 @@ npm run build
 - There is no direct email sending.
 - There is no reply monitoring.
 - There is no email verification API.
+- V1 records are normalized for display, but old records do not magically gain missing V2 evidence fields.
 - GitHub Pages redeploys only after commits/pushes.
 
 ## Future V0.2 Possibilities

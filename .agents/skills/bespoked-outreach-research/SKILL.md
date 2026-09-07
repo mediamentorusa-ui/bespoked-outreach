@@ -1,154 +1,148 @@
 ---
 name: bespoked-outreach-research
-description: Run the Bespoked Outreach recurring research workflow for the static dashboard. Use when asked to find or publish new Bespoked hospitality prospects, run the weekday outbound research rotation, add qualified leads to public/data/leads.json, deduplicate leads, draft personalized outreach, validate the dataset, or prepare/publish a research batch for the Bespoked Outreach repository.
+description: Run the Bespoked Outreach V2 need-signal research workflow for the static dashboard. Use when asked to find, qualify, park, watch, or publish Bespoked restaurant team-development leads or secondary speaking opportunities; update public/data/leads.json; deduplicate prospects; draft Bespoked-first outreach; validate the dataset; or prepare a research batch for the Bespoked Outreach repository.
 ---
 
 # Bespoked Outreach Research
 
 ## Mission
 
-Find a small number of genuinely actionable Bespoked prospects, research them deeply, draft concise personalized outreach, and publish only qualified records into `public/data/leads.json`.
+Run Bespoked Outreach as a V2 need-signal research system, not as a broad hospitality prospecting engine.
 
-Quality beats volume. Add a lead only when there is both a credible reason Bespoked could help and a meaningful reason to contact them now.
+Bespoked's primary positioning is: "We help restaurants build exceptional teams." The primary commercial wedge is restaurants, and the primary B2B journey is `DIAGNOSE -> INTERVENE -> REINFORCE`.
+
+Quality always overrides volume. Add or prepare a lead only when there is:
+
+`SPECIFIC OBSERVABLE SIGNAL + CREDIBLE BESPOKED FIT + RELEVANT DECISION-MAKER + USABLE CONTACT PATH + REASON TO ACT NOW`
+
+If the answer to "Why might this organization need Bespoked now?" is generic, the record is not ready for outreach.
 
 ## Required Context
 
-Before researching or editing data:
+Before researching or editing data, read:
 
-1. Read `AGENTS.md`.
-2. Read `prompts/research-agent.md`.
-3. Read `public/data/leads.json`.
-4. Inspect the active schema in `lib/types.ts` and scoring in `lib/scoring.ts` if the dataset shape or scoring rules are unclear.
+1. `AGENTS.md`
+2. `prompts/research-agent.md`
+3. `public/data/leads.json`
+4. `lib/types.ts` and `lib/scoring.ts` when schema or scoring details matter
 
-Respect the repository architecture:
+Do not run live research, modify scheduled tasks, commit, or push unless the user asks for that action in the current task.
 
-- Keep the app static; do not introduce a backend, API route, SMTP sending, CRM integration, auth, database, or OpenAI API usage unless the user explicitly asks.
-- Store only research lead records in `public/data/leads.json`; do not store review status, edited drafts, approval state, or reviewer notes there.
-- Preserve existing leads and unrelated research batches.
+## V2 Allocation
 
-## Weekday Rotation
+Use weekly targets, not forced quotas:
 
-Use the current local weekday unless the user specifies another category.
+- About 70% restaurant revenue leads.
+- About 30% speaking opportunities.
+- Default weekly ceiling: 20 qualified new records.
+- Speaking should split roughly half local/regional and half national/international.
 
-**Monday: Universities / Hospitality Schools**
+It is fine for a run to return 0, 2, 5, or 9 qualified records. Never fill a quota with generic prospects.
 
-Focus on paid guest speaking, hospitality leadership workshops, masterclasses, executive education, industry speaker programs, and hospitality, tourism, or hotel management programs.
+## Restaurant Lane
 
-Likely offers: `Keynote`, `Workshop / Masterclass`.
+Restaurant leads should receive 65-70% of research effort.
 
-**Tuesday: Hospitality Conferences / Associations / Conventions**
+Geographic priority:
 
-Focus on upcoming conferences, calls for speakers, programming opportunities, workshops, panels, hospitality associations, conventions, and industry events.
+- `TIER_1_LOCAL_CORE`: San Diego and San Diego County.
+- `TIER_2_REGIONAL`: Southern California.
+- `TIER_3_CALIFORNIA_OPPORTUNITY`: Rest of California, only for unusually strong opportunities.
+- `OUT_OF_SCOPE`: exceptional non-California opportunities only.
 
-Likely offers: `Keynote`, `Workshop / Masterclass`.
+Prioritize independent restaurants, owner-led restaurants, small restaurant groups, and one-to-several-location operators with enough team complexity that leadership, standards, onboarding, handovers and team behavior matter.
 
-**Wednesday: Operator Pain / Culture Opportunity**
+The ideal restaurant opportunity combines `NEED + OWNER/OPERATOR INTENT + COMMERCIAL CAPACITY + TIMING`. Avoid closing, insolvent, inactive, giant-chain, generic-fit, one-off bad-review, or no-capacity businesses.
 
-Focus on restaurants, restaurant groups, independent hospitality businesses, and owner-led operations showing visible guest-experience, team-culture, leadership, or hospitality-culture friction.
+Need signals include opening, expansion, rapid hiring, turnover, management transition, new GM/operator/ownership, culture reset, recurring service complaints, guest-care failures, weak handovers, FOH/BOH friction, standards drift, owner rescue, manager inconsistency, weak onboarding, multi-location variation, guest-experience deterioration, growth strain, service-improvement initiatives, or visible operational/team strain.
 
-Prioritize `NEED + OWNER INTENT + COMMERCIAL CAPACITY`.
+Reviews can support a signal, but do not diagnose from reviews. Use cautious language such as "may indicate", "may be worth exploring", and "the observable signal suggests".
 
-Look for pain signals such as recurring recent reviews about poor or inconsistent service, rude or indifferent behavior, guest-care failures, communication problems, weak management, hospitality inconsistency, team culture issues, operational friction, good product but poor experience, growth-related inconsistency, service quality depending heavily on which employee is working, or owners struggling to create standards and systems.
+## Restaurant Offer Routing
 
-Look simultaneously for investment signals such as active and caring owners, thoughtful review responses, recent acquisition or new ownership, renovation, repositioning, strong demand, expansion, good product reputation, multiple locations, public statements about improvement, visible investment, passionate founders, or operators who appear willing but under-systemized.
+Use the first layer of commercial reasoning:
 
-Do not prioritize insolvent, permanently closing, abandoned, random low-signal, giant-chain, or no-investment-capacity businesses.
+- `DIAGNOSE` / `Team Diagnostic`: preferred front door when the signal is real but the root cause cannot responsibly be known externally.
+- `INTERVENE` / `Team Intervention`: use only when evidence strongly suggests a specific intervention area.
+- `REINFORCE` / `Ongoing Advisory`: use when ownership or management is implementing change and needs 30-90 day support.
+- `ADVISORY_SESSION` / `Paid Advisory Session`: use for a defined owner/manager problem when a full diagnostic is unnecessary.
 
-Likely offers: `Hospitality Health Check`, `Advisory Session`, `On-Site Training`, `Consulting / Transformation`.
+Initial intervention modules:
 
-**Thursday: Hotels / Resorts / Hospitality Groups**
+- `LEADER_OPERATING_RHYTHM`
+- `STANDARDS_FLOW_PRESSURE`
+- `DIFFICULT_GUESTS_RECOVERY`
+- `HIRING_ONBOARDING`
 
-Prioritize new openings, expansions, acquisitions, new management, new GM or COO, rebrands, reopenings, guest-experience initiatives, training needs, recurring guest-experience review issues, multi-property consistency issues, and rapidly growing hospitality groups.
+Use the Exceptional Team Framework internally through `likelyFrameworkDimensions`:
 
-Likely offers: `Hospitality Health Check`, `On-Site Training`, `Consulting / Transformation`, `Advisory Session`.
+1. Right People for This House
+2. A House Worth Belonging To
+3. Leaders Who Create the Conditions
+4. Standards That Enable Ownership
+5. One Team, Especially Under Pressure
+6. Bring the House to Life
 
-**Friday: Tourism Boards / Public Institutions / Workforce Development**
+Do not present the framework as scientifically validated, a certification, or a guaranteed business outcome.
 
-Prioritize hospitality workforce programs, tourism initiatives, service-training programs, economic development, hospitality education, visitor-experience initiatives, public-private hospitality programs, destination-management organizations, tourism boards, and community or state hospitality initiatives.
+## Speaking Lane
 
-Likely offers: `Workshop / Masterclass`, `On-Site Training`, `Consulting / Transformation`, `Keynote`.
+Speaking remains secondary. Only pursue opportunities with meaningful authority, audience, strategic value, or plausible paid potential.
 
-## Research Standard
+Use only two speaking products:
 
-Aim for 5 excellent new prospects. Do not lower the quality threshold to reach 5; if only 2 or 3 strong prospects exist, add only those.
+- `A_LIFE_IN_HOSPITALITY`
+- `EXCEPTIONAL_TEAMS`
 
-For each candidate, establish:
+Every speaking lead must include `paidPotential`, `paidPotentialReason`, and `paidPotentialEvidenceUrls`.
 
-- A specific trigger or "why now"; generic facts like "they operate hotels" are not enough.
-- A specific reason Bespoked could help, connected to hospitality culture, leadership, guest experience, operations, brand, team behavior, standards, consistency, or service philosophy.
-- The most relevant decision maker for the opportunity.
-- Source URLs for every material claim.
-- A clear recommendation from the existing offer taxonomy.
+Allowed `paidPotential` values:
 
-Never invent organizations, people, titles, emails, programs, events, conferences, initiatives, reviews, or business facts.
+- `HIGH`
+- `MEDIUM`
+- `LOW`
+- `UNKNOWN`
 
-## Duplicate Prevention
+Never state that an opportunity is paid unless evidence supports it.
 
-Before adding a prospect:
+## Contact And Readiness Gates
 
-1. Compare against existing records in `public/data/leads.json`.
-2. Check organization name, website, contact name, and contact email when available.
-3. Do not add the same organization/contact again unless there is a materially different new opportunity or trigger.
-4. If a prior sample/demo record exists, do not treat it as verified research.
+Do not settle for a generic contact if a direct decision-maker can reasonably be found.
 
-## Email Rules
+Restaurant decision-makers include owners, founders, operating partners, managing partners, CEO, COO, Director of Operations, Regional Director, relevant GM, L&D, People or Training leadership.
 
-Never invent or pattern-guess an email address.
+Speaking decision-makers include program director, event director, conference producer, programming director, speaker manager, executive director, department chair, dean, or relevant faculty/program lead.
 
-Use:
+Never invent or infer an email. Store email statuses in the dashboard's lowercase values: `verified_public`, `found_unconfirmed`, or `not_found`. A generic `info@`, `hello@`, or `contact@` route should not normally qualify as `READY_TO_CONTACT` unless it is explicitly the recommended route for that decision.
 
-- `verified_public` only when the email is directly supported by a reliable public source.
-- `found_unconfirmed` when the email is found but confidence is limited.
-- `not_found` when no credible email is available.
+Classify every lead:
 
-When no email is found, use exactly:
+- `READY_TO_CONTACT`: strong fit, credible signal, clear why now, relevant decision-maker, usable contact path, source evidence, and clear offer/talk fit.
+- `CONTACT_NEEDED`: strong organization/signal/offer fit, but no sufficiently reliable direct contact.
+- `WATCH`: interesting but timing or signal is insufficient or premature.
 
-```json
-"contactEmail": null,
-"emailStatus": "not_found",
-"emailSourceUrl": null
-```
+## Record Shape
 
-## Lead Record Requirements
+Use the V2 fields defined in `prompts/research-agent.md` and supported by `lib/types.ts`.
 
-Write leads using the dashboard schema in `lib/types.ts` and the top-level structure in `public/data/leads.json`:
+For restaurant records, include lane, geography tier, format/scale, contact route, readiness, need-signal fields, `whyNow`, `likelyFrameworkDimensions`, recommended stage/offer/module, V2 scores, source URLs, and outreach draft.
 
-```json
-{
-  "version": "0.1",
-  "generatedAt": "2026-08-11T10:00:00Z",
-  "leads": []
-}
-```
+For speaking records, include lane, event/program, speaking geography type, contact route, readiness, opportunity signal, recommended talk/format, paid potential, V2 scores, source URLs, and outreach draft.
 
-Each added lead must include:
-
-- Valid `organizationType`, `recommendedOffer`, and `emailStatus` enum values.
-- `sourceUrls` covering organization identity, trigger, contact, and email source when available.
-- A specific `trigger`, `triggerDate` when known, and `triggerExplanation`.
-- `whyBespoked` and `recommendedOfferReason` grounded only in sourced facts and known Bespoked positioning.
-- Scores from 0-100: `fitScore`, `timingScore`, `contactScore`, `opportunityScore`, `confidenceScore`.
-- `totalScore` calculated as `30% Fit + 25% Timing + 20% Opportunity + 15% Contact + 10% Confidence`, rounded.
-- A short, warm, specific `emailSubject` and `emailBody`.
-- `createdAt`, `researchBatch`, and useful `tags`.
+Until the dashboard UI is migrated, include the legacy display fields too: `trigger`, `triggerDate`, `triggerExplanation`, `recommendedOffer`, `recommendedOfferReason`, `fitScore`, `timingScore`, `contactScore`, `opportunityScore`, `confidenceScore`, and `totalScore`.
 
 ## Outreach Voice
 
-Draft email copy that is direct, warm, human, specific, credible, concise, and hospitality-native.
+Write as Bespoked speaking directly. Restaurant emails should usually be 150-220 words; speaking emails should usually be 140-210 words.
 
-Use Lucas primarily for operational hospitality outreach. Use company-level Bespoked framing for brand, creative, positioning, strategic, and institution-facing opportunities.
+Do not use "I hope this email finds you well", generic AI compliments, fake familiarity, unsupported claims, broad service menus, assumptions framed as diagnosis, confidential client references, or corporate filler language.
 
-Avoid generic corporate language such as "unlock synergies", "transformative solutions", "revolutionize", and "leverage cutting-edge frameworks". Do not expose confidential Culebra, Puerto Rico case-study details, internal metrics, financials, or sensitive operational facts.
+Do not randomly introduce Lucas in the third person. Mention him only when it improves credibility for the specific opportunity and explain who he is.
 
-## Validation And Finish
+## Safety
 
-After editing `public/data/leads.json`:
+Keep the GitHub Pages/static export architecture intact. Do not add a backend, OpenAI API dependency, Vercel, Supabase, email sending, CRM integration, authentication, or analytics unless the user explicitly asks.
 
-1. Validate the JSON parses.
-2. Confirm every new record conforms to `lib/types.ts`.
-3. Confirm duplicates were avoided.
-4. Run `npm run lint`.
-5. Run `npm run build`.
-6. Commit and push to `main` only when the user requested publishing or the active task explicitly includes publishing the research batch.
+During normal research runs, read the dataset, research, validate, deduplicate, preserve existing records, update only relevant data, run `npm run lint` and `npm run build`, and commit/push only when instructed.
 
-Report how many leads were added, which category was used, and whether lint/build passed.
+If the schema is incompatible with a requested V2 record, stop and report the issue instead of silently redesigning the dashboard.

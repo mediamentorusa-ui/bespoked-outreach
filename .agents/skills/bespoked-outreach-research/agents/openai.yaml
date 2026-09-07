@@ -1,4 +1,4 @@
 interface:
-  display_name: "Bespoked Outreach Research"
-  short_description: "Run Bespoked's recurring outbound research workflow."
-  default_prompt: "Find this weekday's best Bespoked outreach prospects, add only qualified leads to the dashboard dataset, and validate the repo."
+  display_name: "Bespoked Outreach Research V2"
+  short_description: "Run Bespoked's need-signal restaurant research workflow."
+  default_prompt: "Find qualified Bespoked V2 need-signal leads, prioritizing San Diego restaurant team-development opportunities, then validate the dataset without adding weak prospects."

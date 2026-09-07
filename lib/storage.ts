@@ -17,6 +17,8 @@ export type Preferences = {
   defaultCount: 5 | 10 | 20;
   defaultSenderName: string;
   showDemoData: boolean;
+  defaultLane: "restaurant" | "speaking" | "all";
+  defaultRestaurantGeography: "San Diego" | "Southern California" | "California" | "Other";
 };
 
 export const defaultPreferences: Preferences = {
@@ -24,7 +26,9 @@ export const defaultPreferences: Preferences = {
   defaultSegment: "Hotels",
   defaultCount: 10,
   defaultSenderName: "Lucas Ketir",
-  showDemoData: false
+  showDemoData: false,
+  defaultLane: "restaurant",
+  defaultRestaurantGeography: "San Diego"
 };
 
 function isBrowser() {
@@ -53,6 +57,9 @@ export const reviewStore = {
       editedSubject: state[leadId]?.editedSubject,
       editedBody: state[leadId]?.editedBody,
       notes: state[leadId]?.notes,
+      followUpDate: state[leadId]?.followUpDate,
+      contactedAt: state[leadId]?.contactedAt,
+      interestedAt: state[leadId]?.interestedAt,
       ...patch,
       updatedAt: new Date().toISOString()
     };

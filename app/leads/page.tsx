@@ -1,5 +1,5 @@
 import { OutreachApp } from "@/components/outreach-app";
 
 export default function Page() {
-  return <OutreachApp initialView="leads" />;
+  return <OutreachApp initialView="ready" />;
 }
