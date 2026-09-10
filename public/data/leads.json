@@ -1,6 +1,6 @@
 {
   "version": "0.1",
-  "generatedAt": "2026-09-09T13:06:59Z",
+  "generatedAt": "2026-09-10T13:07:18Z",
   "leads": [
     {
       "id": "sample-university-hospitality-program",
@@ -4882,6 +4882,84 @@
         "reopening",
         "hiring-onboarding",
         "contact-needed"
+      ]
+    },
+    {
+      "id": "bar-restaurant-expo-2027-education-program",
+      "leadLane": "speaking",
+      "organizationName": "Bar & Restaurant Expo 2027",
+      "organizationType": "conference",
+      "website": "https://www.barandrestaurantexpo.com/",
+      "eventOrProgramName": "Bar & Restaurant Expo 2027",
+      "city": "Las Vegas",
+      "state": "Nevada",
+      "country": "United States",
+      "speakingGeographyType": "REGIONAL",
+      "contactName": "Nicole Rupersburg",
+      "contactTitle": "Conference Director",
+      "contactEmail": "nrupersburg@questex.com",
+      "emailStatus": "verified_public",
+      "emailSourceUrl": "https://www.barandrestaurantexpo.com/ncbshow-contactus",
+      "preferredContactRoute": "Direct email to the Conference Director published on the official event contact page",
+      "researchReadiness": "READY_TO_CONTACT",
+      "opportunitySignal": "The March 2027 event is open for registration and has repositioned its education around practical workshops and masterclasses for independent bar and restaurant operators.",
+      "opportunityDate": "2027-03-22",
+      "opportunityEvidenceUrls": [
+        "https://www.barandrestaurantexpo.com/ncbshow-show-overview",
+        "https://www.barandrestaurantexpo.com/ncbshow-register",
+        "https://www.barandrestaurantexpo.com/ncbshow-contactus"
+      ],
+      "whyNow": "The 2027 education format and audience promise are already public while registration is still at its opening-rate stage, creating a sensible window to approach the Conference Director before the workshop and masterclass lineup is visibly complete.",
+      "whyBespoked": "Bespoked's operator-grounded work on leadership habits, team behavior, standards, guest experience and consistency under pressure maps directly to the event's independent-owner audience and practical education format.",
+      "recommendedTalk": "EXCEPTIONAL_TEAMS",
+      "recommendedFormat": "WORKSHOP",
+      "talkFitReason": "An interactive Exceptional Teams workshop can give independent owners and managers a practical way to identify the operating conditions behind team inconsistency and translate their intent into behaviors leaders can coach during live service.",
+      "paidPotential": "MEDIUM",
+      "paidPotentialReason": "This is a professionally produced, ticketed commercial event with a substantial operator audience and a paid education pass, but the official materials reviewed do not state that 2027 speakers receive a fee or expense reimbursement.",
+      "paidPotentialEvidenceUrls": [
+        "https://www.barandrestaurantexpo.com/ncbshow-register",
+        "https://questex.com/blog/2026/02/09/30-power-packed-education-sessions-workshops-and-keynotes-confirmed-for-questexs-bar-restaurant-expo-in-las-vegas/"
+      ],
+      "audienceFitScore": 100,
+      "timingScore": 92,
+      "decisionMakerScore": 100,
+      "contactCertaintyScore": 100,
+      "paidPotentialScore": 70,
+      "strategicValueScore": 98,
+      "overallScore": 97,
+      "researchConfidence": 98,
+      "trigger": "The 2027 event is building a practical workshop and masterclass program for independent operators",
+      "triggerDate": "2026-09-10",
+      "triggerExplanation": "Registration is open for March 22-24, 2027, and the official event site emphasizes a streamlined education program led by operators and industry experts, with a named Conference Director and direct professional email.",
+      "recommendedOffer": "Exceptional Teams",
+      "recommendedOfferReason": "The talk directly serves independent restaurant owners and managers who want practical ways to strengthen leadership, team consistency and the guest experience under real operating pressure.",
+      "fitScore": 100,
+      "contactScore": 100,
+      "opportunityScore": 96,
+      "confidenceScore": 98,
+      "totalScore": 97,
+      "researchSummary": "Bar & Restaurant Expo offers a highly concentrated audience of independent owners and operators, a newly clarified 2027 workshop/masterclass format, regional travel practicality and a verified direct route to the Conference Director. The event is commercially credible, but speaker compensation is not publicly confirmed.",
+      "sourceUrls": [
+        "https://www.barandrestaurantexpo.com/ncbshow-show-overview",
+        "https://www.barandrestaurantexpo.com/ncbshow-register",
+        "https://www.barandrestaurantexpo.com/ncbshow-contactus",
+        "https://questex.com/blog/2026/02/09/30-power-packed-education-sessions-workshops-and-keynotes-confirmed-for-questexs-bar-restaurant-expo-in-las-vegas/"
+      ],
+      "emailSubject": "An Exceptional Teams workshop for independent operators",
+      "emailBody": "Nicole,\n\nWe came across the 2027 Bar & Restaurant Expo and its sharper focus on practical workshops and masterclasses for independent operators. The emphasis on ideas owners and managers can put to work immediately feels closely aligned with Bespoked.\n\nWe're a hospitality team-development company that helps restaurants build exceptional teams. Our work sits at the point where an owner's intent meets live service: the leadership habits, standards, handoffs and team behaviors that determine whether hospitality stays human and consistent when the room gets busy.\n\nAn interactive Exceptional Teams workshop could give attendees a practical way to examine the conditions behind inconsistency without defaulting to more scripts or slogans. Participants would leave with a simple method for identifying the few behaviors that matter most in their house, clarifying what managers must reinforce and pressure-testing how those expectations hold up during handoffs and guest recovery.\n\nWould a short conversation about fit, format and whether the 2027 program has a speaker or workshop budget be useful?",
+      "researchBatch": "2026-09-10-speaking-local-regional",
+      "createdAt": "2026-09-10T13:07:18Z",
+      "tags": [
+        "real-research",
+        "speaking",
+        "regional",
+        "las-vegas",
+        "restaurant-operators",
+        "independent-operators",
+        "exceptional-teams",
+        "workshop",
+        "verified-email",
+        "ready-to-contact"
       ]
     }
   ]
