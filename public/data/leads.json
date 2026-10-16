@@ -1,6 +1,6 @@
 {
   "version": "0.1",
-  "generatedAt": "2026-10-14T13:04:17Z",
+  "generatedAt": "2026-10-16T00:50:10Z",
   "leads": [
     {
       "id": "workforce-innovation-expo-london-2027-speaker-application",
@@ -8816,6 +8816,90 @@
       "triggerExplanation": "The owner-led platform is preparing a campus version of its market-and-restaurant model with a new bar and expanded grab-and-go service, but no public opening date is confirmed.",
       "totalScore": 88,
       "overallScore": 88
+    },
+    {
+      "id": "california-restaurant-show-anaheim-2027-speaker-programming",
+      "organizationName": "California Restaurant Show",
+      "website": "https://www.californiarestaurantshow.com/",
+      "eventOrProgramName": "California Restaurant Show 2027",
+      "contactName": "Kathie Griley",
+      "contactTitle": "Vice President of Chapter Relations, California Restaurant Association; Annual Trade Show Liaison",
+      "contactEmail": "kgriley@calrest.org",
+      "emailSourceUrl": "https://www.calrest.org/ada/ccda-seminar-san-diego-community-restaurants",
+      "preferredContactRoute": "Use Kathie Griley's current official CRA staff contact form or published direct phone at 916-431-2761; her older CRA-published professional email can support follow-up but should be reconfirmed before use.",
+      "researchReadiness": "READY_TO_CONTACT",
+      "opportunitySignal": "The September 2027 Anaheim show is confirmed, the official site says its 2027 speaking opportunity is coming soon, and the conference advisory board identifies a current CRA vice president as liaison for the annual trade show.",
+      "opportunityDate": "2027-09-12",
+      "opportunityEvidenceUrls": [
+        "https://www.californiarestaurantshow.com/",
+        "https://www.californiarestaurantshow.com/education/introducing-advisory-board",
+        "https://www.californiarestaurantshow.com/education"
+      ],
+      "whyNow": "The 2026 show has concluded and the organizer has shifted the site to the September 12-14, 2027 event while flagging that speaker information is coming soon. A direct introduction to the named speaking contact now can establish fit before the formal intake opens.",
+      "whyBespoked": "The show serves independent and multi-unit restaurant operators and programs practical education on workforce, staffing, retention, operations and leadership. Bespoked can bring a grounded team-development lens to the management conditions behind consistent hospitality under pressure.",
+      "recommendedTalk": "EXCEPTIONAL_TEAMS",
+      "recommendedFormat": "WORKSHOP",
+      "talkFitReason": "An interactive Exceptional Teams workshop would help owners and managers examine one recurring team-performance challenge, identify the leadership and operating conditions around it, and leave with a practical way to make standards easier to own across busy shifts.",
+      "paidPotential": "MEDIUM",
+      "paidPotentialReason": "The show is a professionally produced, sponsor-backed Western restaurant-industry event with more than 270 exhibitors and a commercially valuable operator audience. No official source reviewed confirms speaker fees, honoraria or travel reimbursement.",
+      "paidPotentialEvidenceUrls": [
+        "https://www.californiarestaurantshow.com/",
+        "https://www.californiarestaurantshow.com/exhibit-2027"
+      ],
+      "audienceFitScore": 100,
+      "timingScore": 94,
+      "decisionMakerScore": 94,
+      "contactCertaintyScore": 82,
+      "paidPotentialScore": 68,
+      "strategicValueScore": 100,
+      "researchConfidence": 94,
+      "fitScore": 100,
+      "contactScore": 82,
+      "opportunityScore": 96,
+      "confidenceScore": 94,
+      "researchSummary": "This is the strongest new local/regional speaking opportunity found: a confirmed Anaheim restaurant-industry event, an explicit forthcoming 2027 speaker route, a current named CRA trade-show liaison and an audience of independent and multi-unit operators. The liaison's direct phone and official contact form are current; her public email is older and should be reconfirmed. Compensation is not public, so paid potential remains medium.",
+      "emailSubject": "Exceptional Teams workshop for the 2027 California Restaurant Show",
+      "emailBody": "Kathie,\n\nWe saw that the California Restaurant Show has confirmed its September 2027 return to Anaheim and that speaker information is coming soon. The show's practical education for independent and multi-unit operators, especially around workforce, staffing, retention and operations, feels closely aligned with Bespoked.\n\nWe're a restaurant team-development company that helps restaurants build exceptional teams. Our work focuses on the human layer of operations: the manager habits, standards, handoffs and everyday behaviors that determine whether hospitality stays warm and consistent when a shift is under pressure.\n\nWe'd like to explore an interactive Exceptional Teams workshop for owners and managers. Participants would bring one recurring team-performance challenge, map the conditions around it and identify the few behaviors leaders need to make visible and reinforce. They would leave with a practical test for whether their systems make those behaviors easier or harder during live service.\n\nAs CRA's liaison for the annual trade show, would you be open to pointing us toward the 2027 education-planning process? We'd also welcome guidance on timing, format and whether the program has a speaker or workshop budget.",
+      "sourceUrls": [
+        "https://www.californiarestaurantshow.com/",
+        "https://www.californiarestaurantshow.com/contact-western-team",
+        "https://www.californiarestaurantshow.com/education",
+        "https://www.californiarestaurantshow.com/education/introducing-advisory-board",
+        "https://www.californiarestaurantshow.com/exhibit-2027",
+        "https://www.calrest.org/about",
+        "https://www.calrest.org/member-development/kathie-griley",
+        "https://www.calrest.org/ada/ccda-seminar-san-diego-community-restaurants",
+        "https://cdn.asp.events/CLIENT_Restaura_2932F970_970A_E5A3_0EA8B24185DE2217/sites/TCR_26/media/California-Rest-Show-Post-event-release-final-081925.pdf"
+      ],
+      "tags": [
+        "real-research",
+        "speaking",
+        "regional",
+        "anaheim",
+        "restaurant-operators",
+        "independent-operators",
+        "multi-unit-operators",
+        "exceptional-teams",
+        "workshop",
+        "found-unconfirmed-email",
+        "ready-to-contact"
+      ],
+      "leadLane": "speaking",
+      "organizationType": "conference",
+      "city": "Anaheim",
+      "state": "California",
+      "country": "United States",
+      "speakingGeographyType": "REGIONAL",
+      "emailStatus": "found_unconfirmed",
+      "createdAt": "2026-10-16T00:50:10Z",
+      "researchBatch": "2026-10-15-speaking-local-regional",
+      "trigger": "Confirmed 2027 Anaheim restaurant show with a forthcoming speaker intake",
+      "triggerDate": "2026-10-15",
+      "triggerExplanation": "The organizer has rolled the site to its September 2027 show, says the speaking opportunity is coming soon and identifies a current CRA vice president as the association's annual trade-show liaison.",
+      "recommendedOffer": "Exceptional Teams",
+      "recommendedOfferReason": "The operator-heavy audience and practical workforce and operations program make a hands-on workshop about the conditions behind dependable restaurant team performance the clearest Bespoked fit.",
+      "totalScore": 94,
+      "overallScore": 94
     }
   ]
 }
